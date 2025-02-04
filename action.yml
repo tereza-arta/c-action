@@ -1,0 +1,24 @@
+name: 'Test'
+description: 'Some action'
+inputs:
+  message:
+    description: 'simple message'
+    required: true
+    default: 'Some-message...'
+outputs:
+  out:
+    description: "test-out"
+    value: ${{ steps.with-out.outputs.out }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Print message
+      run: echo "$MSG"
+      env:
+        MSG: ${{ inputs.message }}
+
+    - name: Set output
+      id: with-out
+      run: echo "out=out-from-action" >> $GITHUB_OUTPUT
+    
