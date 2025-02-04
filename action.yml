@@ -15,6 +15,7 @@ runs:
   steps:
     - name: Print message
       run: echo "$MSG"
+      shell: bash
       env:
         MSG: ${{ inputs.message }}
 
