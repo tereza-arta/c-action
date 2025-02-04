@@ -21,5 +21,6 @@ runs:
 
     - name: Set output
       id: with-out
+      shell: bash
       run: echo "out=out-from-action" >> $GITHUB_OUTPUT
     
